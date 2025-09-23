@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例9：Flex项目换行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 */
+        .wrap-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #ecf0f1;
+        }
+        
+        .wrap-item {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            background: #3498db;
+            min-width: 150px;
+        }
+        
+        .nowrap { flex-wrap: nowrap; }
+        .wrap { flex-wrap: wrap; }
+        .wrap-reverse { flex-wrap: wrap-reverse; }
+        
+        .wrap-title {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例9：Flex项目换行</h1>
+        <div class="description">
+            <p>使用flex-wrap属性控制Flex项目是否换行</p>
+            <p>核心属性：<code>flex-wrap: nowrap | wrap | wrap-reverse</code></p>
+        </div>
+        
+        <!-- 换行示例 -->
+        <h3 class="wrap-title">nowrap (默认值，不换行)</h3>
+        <div class="wrap-container nowrap">
+            <div class="wrap-item">项目1</div>
+            <div class="wrap-item">项目2</div>
+            <div class="wrap-item">项目3</div>
+            <div class="wrap-item">项目4</div>
+            <div class="wrap-item">项目5</div>
+            <div class="wrap-item">项目6</div>
+        </div>
+        
+        <h3 class="wrap-title">wrap (正常换行)</h3>
+        <div class="wrap-container wrap">
+            <div class="wrap-item">项目1</div>
+            <div class="wrap-item">项目2</div>
+            <div class="wrap-item">项目3</div>
+            <div class="wrap-item">项目4</div>
+            <div class="wrap-item">项目5</div>
+            <div class="wrap-item">项目6</div>
+        </div>
+        
+        <h3 class="wrap-title">wrap-reverse (反向换行)</h3>
+        <div class="wrap-container wrap-reverse">
+            <div class="wrap-item">项目1</div>
+            <div class="wrap-item">项目2</div>
+            <div class="wrap-item">项目3</div>
+            <div class="wrap-item">项目4</div>
+            <div class="wrap-item">项目5</div>
+            <div class="wrap-item">项目6</div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .nowrap { flex-wrap: nowrap; }<br>
+            .wrap { flex-wrap: wrap; }<br>
+            .wrap-reverse { flex-wrap: wrap-reverse; }<br>
+        </div>
+    </div>
+</body>
+</html>

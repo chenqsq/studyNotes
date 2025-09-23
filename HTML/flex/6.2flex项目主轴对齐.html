@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例13：Flex主轴分布</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 */
+        .justify-container {
+            display: flex;
+            height: 100px;
+            background: #ecf0f1;
+            margin-bottom: 40px;
+            padding: 10px;
+            gap: 10px;
+        }
+        
+        .justify-item {
+            width: 80px;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            background: #3498db;
+        }
+        
+        .flex-start { justify-content: flex-start; }
+        .center { justify-content: center; }
+        .flex-end { justify-content: flex-end; }
+        .space-between { justify-content: space-between; }
+        .space-around { justify-content: space-around; }
+        .space-evenly { justify-content: space-evenly; }
+        
+        .example-title {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例13：Flex主轴分布</h1>
+        <div class="description">
+            <p>使用justify-content属性控制Flex项目在主轴上的分布</p>
+            <p>核心属性：<code>justify-content: flex-start | center | flex-end | space-between | space-around | space-evenly</code></p>
+        </div>
+        
+        <!-- 分布示例 -->
+        <div class="example-title">flex-start (默认值，从起点开始)</div>
+        <div class="justify-container flex-start">
+            <div class="justify-item">项目1</div>
+            <div class="justify-item">项目2</div>
+            <div class="justify-item">项目3</div>
+        </div>
+        
+        <div class="example-title">center (居中)</div>
+        <div class="justify-container center">
+            <div class="justify-item">项目1</div>
+            <div class="justify-item">项目2</div>
+            <div class="justify-item">项目3</div>
+        </div>
+        
+        <div class="example-title">flex-end (从终点开始)</div>
+        <div class="justify-container flex-end">
+            <div class="justify-item">项目1</div>
+            <div class="justify-item">项目2</div>
+            <div class="justify-item">项目3</div>
+        </div>
+        
+        <div class="example-title">space-between (两端对齐)</div>
+        <div class="justify-container space-between">
+            <div class="justify-item">项目1</div>
+            <div class="justify-item">项目2</div>
+            <div class="justify-item">项目3</div>
+        </div>
+        
+        <div class="example-title">space-around (均匀分布)</div>
+        <div class="justify-container space-around">
+            <div class="justify-item">项目1</div>
+            <div class="justify-item">项目2</div>
+            <div class="justify-item">项目3</div>
+        </div>
+        
+        <div class="example-title">space-evenly (完全均匀分布)</div>
+        <div class="justify-container space-evenly">
+            <div class="justify-item">项目1</div>
+            <div class="justify-item">项目2</div>
+            <div class="justify-item">项目3</div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .flex-start { justify-content: flex-start; }<br>
+            .center { justify-content: center; }<br>
+            .flex-end { justify-content: flex-end; }<br>
+            .space-between { justify-content: space-between; }<br>
+            .space-around { justify-content: space-around; }<br>
+            .space-evenly { justify-content: space-evenly; }<br>
+        </div>
+    </div>
+</body>
+</html>

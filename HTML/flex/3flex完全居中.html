@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例3：垂直居中内容</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 - 只有3行！ */
+        .center-container {
+            display: flex; /* 启用Flex布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 200px;
+            background-color: #e74c3c;
+            border-radius: 8px;
+        }
+        
+        .centered-content {
+            background-color: #c0392b;
+            color: white;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例3：垂直居中内容</h1>
+        <div class="description">
+            <p>使用Flex轻松实现水平和垂直居中</p>
+            <p>核心属性：<code>justify-content: center</code> + <code>align-items: center</code></p>
+        </div>
+        
+        <!-- 居中容器 -->
+        <div class="center-container">
+            <div class="centered-content">
+                <h3>完全居中的内容</h3>
+                <p>使用Flex轻松实现</p>
+            </div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .center-container {<br>
+            &nbsp;&nbsp;display: flex; /* 启用Flex布局 */<br>
+            &nbsp;&nbsp;justify-content: center; /* 水平居中 */<br>
+            &nbsp;&nbsp;align-items: center; /* 垂直居中 */<br>
+            }
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例22：Flex项目伸缩比例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 */
+        .flex-container {
+            display: flex;
+            height: 100px;
+            background: #ecf0f1;
+            padding: 10px;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .flex-item {
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .grow-demo .item-1 { flex-grow: 1; background: #3498db; }
+        .grow-demo .item-2 { flex-grow: 2; background: #2ecc71; }
+        .grow-demo .item-3 { flex-grow: 1; background: #e74c3c; }
+        
+        .shrink-demo .item-1 { flex-shrink: 1; background: #3498db; width: 300px; }
+        .shrink-demo .item-2 { flex-shrink: 2; background: #2ecc71; width: 300px; }
+        .shrink-demo .item-3 { flex-shrink: 3; background: #e74c3c; width: 300px; }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例22：Flex项目伸缩比例</h1>
+        <div class="description">
+            <p>使用flex-grow和flex-shrink属性控制Flex项目的伸缩比例</p>
+            <p>核心属性：<code>flex-grow</code>和<code>flex-shrink</code></p>
+        </div>
+        
+        <!-- 伸缩比例示例 -->
+        <h3>flex-grow (扩展比例)</h3>
+        <div class="flex-container grow-demo">
+            <div class="flex-item item-1">grow:1</div>
+            <div class="flex-item item-2">grow:2</div>
+            <div class="flex-item item-3">grow:1</div>
+        </div>
+        
+        <h3>flex-shrink (收缩比例)</h3>
+        <div class="flex-container shrink-demo">
+            <div class="flex-item item-1">shrink:1</div>
+            <div class="flex-item item-2">shrink:2</div>
+            <div class="flex-item item-3">shrink:3</div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            /* flex-grow示例 */<br>
+            .item-1 { flex-grow: 1; }<br>
+            .item-2 { flex-grow: 2; }<br>
+            .item-3 { flex-grow: 1; }<br>
+            <br>
+            /* flex-shrink示例 */<br>
+            .item-1 { flex-shrink: 1; }<br>
+            .item-2 { flex-shrink: 2; }<br>
+            .item-3 { flex-shrink: 3; }<br>
+        </div>
+    </div>
+</body>
+</html>

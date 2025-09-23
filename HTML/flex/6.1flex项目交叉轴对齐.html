@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例10：Flex项目对齐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 */
+        .align-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #ecf0f1;
+            height: 200px;
+        }
+        
+        .align-item {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            background: #3498db;
+            min-width: 150px;
+        }
+        
+        .flex-start { align-items: flex-start; }
+        .center { align-items: center; }
+        .flex-end { align-items: flex-end; }
+        .stretch { align-items: stretch; }
+        .baseline { align-items: baseline; }
+        
+        .align-title {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例10：Flex项目对齐</h1>
+        <div class="description">
+            <p>使用align-items属性控制Flex项目在交叉轴上的对齐方式</p>
+            <p>核心属性：<code>align-items: flex-start | center | flex-end | stretch | baseline</code></p>
+        </div>
+        
+        <!-- 对齐示例 -->
+        <h3 class="align-title">flex-start (顶部对齐)</h3>
+        <div class="align-container flex-start">
+            <div class="align-item">项目1</div>
+            <div class="align-item">项目2</div>
+            <div class="align-item">项目3</div>
+        </div>
+        
+        <h3 class="align-title">center (居中对齐)</h3>
+        <div class="align-container center">
+            <div class="align-item">项目1</div>
+            <div class="align-item">项目2</div>
+            <div class="align-item">项目3</div>
+        </div>
+        
+        <h3 class="align-title">flex-end (底部对齐)</h3>
+        <div class="align-container flex-end">
+            <div class="align-item">项目1</div>
+            <div class="align-item">项目2</div>
+            <div class="align-item">项目3</div>
+        </div>
+        
+        <h3 class="align-title">stretch (拉伸填充)</h3>
+        <div class="align-container stretch">
+            <div class="align-item">项目1</div>
+            <div class="align-item">项目2</div>
+            <div class="align-item">项目3</div>
+        </div>
+        
+        <h3 class="align-title">baseline (基线对齐)</h3>
+        <div class="align-container baseline">
+            <div class="align-item" style="padding: 30px 20px;">项目1</div>
+            <div class="align-item" style="padding: 20px 20px;">项目2</div>
+            <div class="align-item" style="padding: 40px 20px;">项目3</div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .flex-start { align-items: flex-start; }<br>
+            .center { align-items: center; }<br>
+            .flex-end { align-items: flex-end; }<br>
+            .stretch { align-items: stretch; }<br>
+            .baseline { align-items: baseline; }<br>
+        </div>
+    </div>
+</body>
+</html>

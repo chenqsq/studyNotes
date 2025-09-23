@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex布局实战案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 - Flex布局 */
+        .navbar {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 头部区域 */
+        .hero {
+            background: linear-gradient(rgba(75, 108, 183, 0.8), rgba(24, 40, 72, 0.8)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* 卡片布局 - Flex布局 */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 36px;
+            color: #182848;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ff6b6b;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px;
+            max-width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #182848;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* 表单布局 - Flex布局 */
+        .form-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        
+        .form-group {
+            flex: 1 1 300px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #182848;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #4b6cb7;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(75, 108, 183, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        /* 页脚 - Flex布局 */
+        footer {
+            background: linear-gradient(to right, #182848, #4b6cb7);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #ff6b6b;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #ff6b6b;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #ff6b6b;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #182848;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease;
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .form-section {
+                padding: 25px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                FlexMaster
+            </div>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="#"><i class="fas fa-th-large"></i> 产品</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> 关于</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> 联系我们</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header class="hero">
+        <div class="container">
+            <h1>Flexbox布局实战案例</h1>
+            <p>探索现代CSS布局的强大功能，创建响应式、灵活且高效的网页设计</p>
+            <a href="#" class="btn">开始学习</a>
+        </div>
+    </header>
+
+    <!-- 卡片布局 -->
+    <div class="container">
+        <h2 class="section-title">Flex布局应用场景</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="导航栏" class="card-img">
+                <div class="card-content">
+                    <h3>响应式导航栏</h3>
+                    <p>使用Flex布局创建自适应的导航菜单，在大屏幕上水平排列，在小屏幕上垂直排列，无需修改HTML结构。</p>
+                    <a href="#" class="btn">查看示例</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="卡片布局" class="card-img">
+                <div class="card-content">
+                    <h3>卡片式布局</h3>
+                    <p>创建灵活的产品卡片网格，自动适应不同屏幕尺寸，保持一致的间距和对齐方式。</p>
+                    <a href="#" class="btn">查看示例</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="表单布局" class="card-img">
+                <div class="card-content">
+                    <h3>表单布局</h3>
+                    <p>使用Flexbox创建响应式表单，标签和输入框完美对齐，在不同设备上保持美观和功能性。</p>
+                    <a href="#" class="btn">查看示例</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 表单布局 -->
+        <h2 class="section-title">Flex表单布局</h2>
+        <div class="form-section">
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> 姓名</label>
+                        <input type="text" id="name" placeholder="请输入您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> 电子邮箱</label>
+                        <input type="email" id="email" placeholder="请输入您的电子邮箱">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> 电话</label>
+                        <input type="tel" id="phone" placeholder="请输入您的电话号码">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject"><i class="fas fa-tag"></i> 主题</label>
+                        <select id="subject">
+                            <option value="">请选择主题</option>
+                            <option value="support">技术支持</option>
+                            <option value="sales">销售咨询</option>
+                            <option value="feedback">产品反馈</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> 留言</label>
+                        <textarea id="message" placeholder="请输入您的留言..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="btn-container">
+                    <button type="submit" class="btn">提交表单</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>FlexMaster致力于提供最前沿的CSS布局解决方案，帮助开发者创建响应式、灵活且美观的网页设计。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 首页</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 产品</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 服务</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 博客</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>联系方式</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区科技园区88号</li>
+                        <li><i class="fas fa-phone"></i> +86 10 8888 7777</li>
+                        <li><i class="fas fa-envelope"></i> info@flexmaster.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 FlexMaster 布局解决方案. 保留所有权利。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端导航切换
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // 表单提交演示
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('表单提交演示！在实际应用中，这里会处理表单数据。');
+        });
+    </script>
+</body>
+</html>

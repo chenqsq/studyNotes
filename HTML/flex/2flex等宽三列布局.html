@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例2：等宽三列布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 - 只有4行！ */
+        .columns-container {
+            display: flex; /* 启用Flex布局 */
+            gap: 20px; /* 列间距 */
+        }
+        
+        .column {
+            flex: 1; /* 所有项目平均分配空间 */
+            background-color: #2ecc71;
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例2：等宽三列布局</h1>
+        <div class="description">
+            <p>使用Flex创建等宽列 - 自动平均分配空间</p>
+            <p>核心属性：<code>display: flex</code> + <code>flex: 1</code></p>
+        </div>
+        
+        <!-- 三列布局 -->
+        <div class="columns-container">
+            <div class="column">
+                <h3>第一列</h3>
+                <p>所有列宽度相等，自动填充容器空间</p>
+            </div>
+            <div class="column">
+                <h3>第二列</h3>
+                <p>无需计算宽度，Flex自动处理</p>
+            </div>
+            <div class="column">
+                <h3>第三列</h3>
+                <p>响应式设计，适应不同屏幕</p>
+            </div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .columns-container {<br>
+            &nbsp;&nbsp;display: flex; /* 启用Flex布局 */<br>
+            &nbsp;&nbsp;gap: 20px; /* 列间距 */<br>
+            }<br><br>
+            .column {<br>
+            &nbsp;&nbsp;flex: 1; /* 所有项目平均分配空间 */<br>
+            }
+        </div>
+    </div>
+</body>
+</html>

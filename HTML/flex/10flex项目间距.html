@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例11：Flex项目间距</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 */
+        .gap-container {
+            display: flex;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #ecf0f1;
+        }
+        
+        .gap-item {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            background: #3498db;
+        }
+        
+        .gap-0 { gap: 0; }
+        .gap-10 { gap: 10px; }
+        .gap-20 { gap: 20px; }
+        .gap-30 { gap: 30px; }
+        
+        .gap-title {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例11：Flex项目间距</h1>
+        <div class="description">
+            <p>使用gap属性控制Flex项目之间的间距</p>
+            <p>核心属性：<code>gap: 数值</code></p>
+        </div>
+        
+        <!-- 间距示例 -->
+        <h3 class="gap-title">gap: 0</h3>
+        <div class="gap-container gap-0">
+            <div class="gap-item">项目1</div>
+            <div class="gap-item">项目2</div>
+            <div class="gap-item">项目3</div>
+        </div>
+        
+        <h3 class="gap-title">gap: 10px</h3>
+        <div class="gap-container gap-10">
+            <div class="gap-item">项目1</div>
+            <div class="gap-item">项目2</div>
+            <div class="gap-item">项目3</div>
+        </div>
+        
+        <h3 class="gap-title">gap: 20px</h3>
+        <div class="gap-container gap-20">
+            <div class="gap-item">项目1</div>
+            <div class="gap-item">项目2</div>
+            <div class="gap-item">项目3</div>
+        </div>
+        
+        <h3 class="gap-title">gap: 30px</h3>
+        <div class="gap-container gap-30">
+            <div class="gap-item">项目1</div>
+            <div class="gap-item">项目2</div>
+            <div class="gap-item">项目3</div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .gap-0 { gap: 0; }<br>
+            .gap-10 { gap: 10px; }<br>
+            .gap-20 { gap: 20px; }<br>
+            .gap-30 { gap: 30px; }<br>
+        </div>
+    </div>
+</body>
+</html>

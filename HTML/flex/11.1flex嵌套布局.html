@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例19：Flex项目嵌套布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 */
+        .nested-container {
+            display: flex;
+            gap: 20px;
+            background: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .main-column {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .header, .footer {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .content {
+            display: flex;
+            gap: 15px;
+            flex: 1;
+        }
+        
+        .article {
+            flex: 3;
+            background: #2ecc71;
+            padding: 20px;
+            color: white;
+        }
+        
+        .aside {
+            flex: 1;
+            background: #9b59b6;
+            padding: 20px;
+            color: white;
+        }
+        
+        .widget {
+            background: #e74c3c;
+            padding: 15px;
+            color: white;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例19：Flex项目嵌套布局</h1>
+        <div class="description">
+            <p>使用Flex创建嵌套布局结构</p>
+            <p>核心概念：Flex容器内嵌套Flex容器</p>
+        </div>
+        
+        <!-- 嵌套布局示例 -->
+        <div class="nested-container">
+            <div class="main-column">
+                <div class="header">网站标题</div>
+                <div class="content">
+                    <div class="article">
+                        <h3>主要内容</h3>
+                        <p>这是一个使用Flex布局创建的嵌套结构示例。</p>
+                    </div>
+                    <div class="aside">
+                        <h3>侧边内容</h3>
+                        <p>嵌套在主要内容区域内的侧边栏。</p>
+                    </div>
+                </div>
+                <div class="footer">页脚信息</div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="widget">
+                    <h3>小工具1</h3>
+                    <p>侧边栏的第一个小工具</p>
+                </div>
+                <div class="widget">
+                    <h3>小工具2</h3>
+                    <p>侧边栏的第二个小工具</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .nested-container { display: flex; }<br>
+            .main-column { <br>
+            &nbsp;&nbsp;display: flex;<br>
+            &nbsp;&nbsp;flex-direction: column;<br>
+            }<br>
+            .content { display: flex; }<br>
+            .sidebar { <br>
+            &nbsp;&nbsp;display: flex;<br>
+            &nbsp;&nbsp;flex-direction: column;<br>
+            }<br>
+        </div>
+    </div>
+</body>
+</html>

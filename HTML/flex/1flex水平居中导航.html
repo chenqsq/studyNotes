@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例1：水平居中导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* 核心Flex代码 - 只有3行！ */
+        .nav-container {
+            display: flex; /* 启用Flex布局 */
+            justify-content: center; /* 水平居中 */
+            gap: 15px; /* 项目间距 */
+            background-color: #3498db;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .nav-item {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: #1d6fa5;
+        }
+        
+        .code-box {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>案例1：水平居中导航</h1>
+        <div class="description">
+            <p>最简单的Flex布局 - 让导航项水平居中显示</p>
+            <p>核心属性：<code>display: flex</code> + <code>justify-content: center</code></p>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-container">
+            <a href="#" class="nav-item">首页</a>
+            <a href="#" class="nav-item">产品</a>
+            <a href="#" class="nav-item">关于</a>
+            <a href="#" class="nav-item">联系我们</a>
+        </div>
+        
+        <div class="code-box">
+            /* 核心Flex代码 */<br>
+            .nav-container {<br>
+            &nbsp;&nbsp;display: flex; /* 启用Flex布局 */<br>
+            &nbsp;&nbsp;justify-content: center; /* 水平居中 */<br>
+            &nbsp;&nbsp;gap: 15px; /* 项目间距 */<br>
+            }
+        </div>
+    </div>
+</body>
+</html>
