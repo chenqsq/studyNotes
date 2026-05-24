@@ -210,7 +210,7 @@ git config --list
 ---
 
 ## 生成 SSH Key
-![alt text](image.png)
+![alt text](images/image.png)
 输入：
 
 ```bash id="hyhn5t"
@@ -237,7 +237,7 @@ C:\Users\用户名\.ssh
 
 ## 查看公钥
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 打开文件后复制全部内容。
 
@@ -247,14 +247,14 @@ C:\Users\用户名\.ssh
 
 打开设置：
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 ---
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 ## 把你刚刚复制到的ssh密钥粘贴到这里面
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 ---
 
@@ -284,39 +284,39 @@ You've successfully authenticated
 
 GitHub 首页：
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 ---
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 ---
 
 # 十二、克隆仓库到本地
 
 复制仓库 SSH 地址：
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 ---
 
 自己新建一个文件夹，然后打开终端：
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 ```bash id="8b6y8o"
 git clone 仓库地址(刚刚复制的)
 ```
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 这样子就算成功了
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
 在文件夹找到你的仓库
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 ---
 
 ## 用vscode进入项目：
-![alt text](image-12.png)
-![alt text](image-13.png)
+![alt text](images/image-12.png)
+![alt text](images/image-13.png)
 
 ---
 
@@ -366,7 +366,7 @@ git clone 仓库地址(刚刚复制的)
 ```bash id="n0e8v8"
 git clone 仓库地址
 ```
-![alt text](image-14.png)
+![alt text](images/image-14.png)
 
 ---
 
@@ -375,8 +375,8 @@ git clone 仓库地址
 ```bash id="4utp2l"
 cd 项目名
 ```
-![alt text](image-15.png)
-![alt text](image-16.png)
+![alt text](images/image-15.png)
+![alt text](images/image-16.png)
 
 ---
 
@@ -385,7 +385,7 @@ cd 项目名
 ```bash id="7g4t3y"
 git branch
 ```
-![alt text](image-17.png)
+![alt text](images/image-17.png)
 
 ---
 
@@ -403,14 +403,14 @@ git checkout -b 分支名(英文)
 git switch -c 分支名(英文)
 ```
 
-![alt text](image-18.png)
+![alt text](images/image-18.png)
 
 ---
 
 ## 5. 开发代码
 
 修改文件后你vscode会有提示
-![alt text](image-19.png)
+![alt text](images/image-19.png)
 
 ---
 
@@ -419,9 +419,9 @@ git switch -c 分支名(英文)
 ```bash id="4iwnc0"
 git add .
 ```
-![alt text](image-20.png)
+![alt text](images/image-20.png)
 输入命令后这里会显示暂存你的代码修改
-![alt text](image-21.png)
+![alt text](images/image-21.png)
 ---
 
 ## 7. 提交代码
@@ -429,7 +429,7 @@ git add .
 ```bash id="jlwmc7"
 git commit -m "双引号里面描述你改动的具体内容"
 ```
-![alt text](image-22.png)
+![alt text](images/image-22.png)
 ---
 
 ## 8. 把你当前要推送的分支，推送分支到 GitHub 远程仓库
@@ -437,7 +437,7 @@ git commit -m "双引号里面描述你改动的具体内容"
 ```bash id="jlwm85"
 git push origin 分支名(英文)
 ```
-![alt text](5c423b4c-689d-43c8-9c9a-d1e585b105b1.png)
+![alt text](images/5c423b4c-689d-43c8-9c9a-d1e585b105b1.png)
 ---
 
 ## 9. 在 GitHub 发起 PR（Pull Request）
@@ -447,9 +447,9 @@ git push origin 分支名(英文)
 * 合并请求
 * 代码审核
 
-![alt text](2dc1a294-7ea5-4058-9b20-146adf5d29e7.png)
-![alt text](image-23.png)
-![alt text](image-24.png)
+![alt text](images/2dc1a294-7ea5-4058-9b20-146adf5d29e7.png)
+![alt text](images/image-23.png)
+![alt text](images/image-24.png)
 ---
 
 ## 10. 合并到 main
@@ -460,8 +460,8 @@ git push origin 分支名(英文)
 feature/login
 → main
 ```
-![alt text](image-25.png)
-![alt text](image-26.png)
+![alt text](images/image-25.png)
+![alt text](images/image-26.png)
 
 ---
 
