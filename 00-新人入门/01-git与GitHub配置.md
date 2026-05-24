@@ -394,13 +394,13 @@ git branch
 例如开发登录功能,输入这个命令后可以切换到该功能分支：
 
 ```bash id="g7f1qv"
-git checkout -b feature/功能名(英文)
+git checkout -b 分支名(英文)
 ```
 
 或者新版：
 
 ```bash id="jlwmu8"
-git switch -c feature/功能名(英文)
+git switch -c 分支名(英文)
 ```
 
 ![alt text](image-18.png)
@@ -429,15 +429,15 @@ git add .
 ```bash id="jlwmc7"
 git commit -m "双引号里面描述你改动的具体内容"
 ```
-
+![alt text](image-22.png)
 ---
 
-## 8. 推送分支到 GitHub
+## 8. 把你当前要推送的分支，推送分支到 GitHub 远程仓库
 
 ```bash id="jlwm85"
-git push origin feature/功能名(英文)
+git push origin 分支名(英文)
 ```
-
+![alt text](5c423b4c-689d-43c8-9c9a-d1e585b105b1.png)
 ---
 
 ## 9. 在 GitHub 发起 PR（Pull Request）
@@ -447,6 +447,9 @@ git push origin feature/功能名(英文)
 * 合并请求
 * 代码审核
 
+![alt text](2dc1a294-7ea5-4058-9b20-146adf5d29e7.png)
+![alt text](image-23.png)
+![alt text](image-24.png)
 ---
 
 ## 10. 合并到 main
@@ -457,6 +460,8 @@ git push origin feature/功能名(英文)
 feature/login
 → main
 ```
+![alt text](image-25.png)
+![alt text](image-26.png)
 
 ---
 
@@ -471,7 +476,7 @@ feature/login
 
 ---
 
-## 功能分支
+## 功能分支（用feature/作为前缀）
 
 | 分支              | 作用   |
 | --------------- | ---- |
@@ -491,29 +496,195 @@ feature/login
 
 # 七、新人必须理解的 Git 思维
 
----
+##  思维总览图（一图看懂 Git 全链路）
 
-## main 分支
+```mermaid
+flowchart TB
+    subgraph LOCAL[" 你的电脑（本地）"]
+        direction TB
+        WD["📁 工作区<br/>Working Directory<br/><i>你写代码的地方</i>"]
+        SA["📦 暂存区<br/>Staging Area<br/><i>git add 之后的文件</i>"]
+        LR["📚 本地仓库<br/>Local Repository<br/><i>git commit 之后的版本</i>"]
+    end
 
-```txt id="jz5zsr"
-正式版本
-不能乱改
+    subgraph REMOTE["☁️ GitHub（远程）"]
+        RR["🌐 远程仓库<br/>Remote Repository<br/><i>团队共享的云端代码</i>"]
+    end
+
+    WD -->|"git add .<br/>📥 添加到暂存区"| SA
+    SA -->|"git commit -m '说明'<br/>💾 提交到本地仓库"| LR
+    LR -->|"git push<br/>📤 上传到云端"| RR
+    RR -->|"git pull<br/>📥 拉取最新代码"| LR
+    LR -.->|"git checkout / git switch<br/>🔄 切换版本/分支"| WD
+
+    style WD fill:#fff3cd,stroke:#ffc107,color:#333
+    style SA fill:#d1ecf1,stroke:#17a2b8,color:#333
+    style LR fill:#d4edda,stroke:#28a745,color:#333
+    style RR fill:#e2d9f3,stroke:#6f42c1,color:#333
 ```
 
 ---
 
-## feature 分支
+##  核心思维一：三区模型（最重要的概念）
 
-```txt id="jlwm7m"
-每个人开发自己的功能
-互不影响
+新人最容易迷惑的就是 Git 的「三个区域」：
+
+| 区域 | 命令 | 说明 |
+|------|------|------|
+| **工作区** | 写代码 | 你正在修改的文件 |
+| **暂存区** | `git add` | 标记哪些文件要纳入下一次提交 |
+| **版本库** | `git commit` | 生成一个版本快照，永久保存 |
+
+```mermaid
+flowchart LR
+    A["✏️ 工作区<br/>改代码"] -->|"git add"| B["📦 暂存区<br/>Staging Area"]
+    B -->|"git commit"| C["📚 版本库<br/>Repository"]
+    
+    style A fill:#fff3cd,stroke:#ffc107
+    style B fill:#d1ecf1,stroke:#17a2b8
+    style C fill:#d4edda,stroke:#28a745
+```
+
+> ⚠️ **关键理解**：`git add` 和 `git commit` 是两步，缺一不可！
+> - 只 `git add` 不 `git commit` = 文件标记了但还没生成版本记录
+> - 直接 `git commit` 不 `git add` = 没有文件被暂存，commit 不会包含任何改动
+
+---
+
+##  核心思维二：分布式协作（本地 ↔ 远程）
+
+Git 是**分布式**版本控制，每个人都有完整的仓库副本。
+
+```mermaid
+flowchart TB
+    subgraph A["👨‍💻 你的电脑"]
+        A1["本地仓库"]
+        A2["工作区"]
+    end
+    
+    subgraph B["☁️ GitHub"]
+        B1["远程仓库<br/>(中央共享)"]
+    end
+    
+    subgraph C["👩‍💻 同事的电脑"]
+        C1["本地仓库"]
+        C2["工作区"]
+    end
+
+    A1 -->|"push 推送"| B1
+    B1 -->|"pull 拉取"| A1
+    B1 -->|"pull 拉取"| C1
+    C1 -->|"push 推送"| B1
+
+    style B1 fill:#e2d9f3,stroke:#6f42c1,color:#333
+```
+
+>  **一句话总结**：
+> - `push` = 把你的代码**分享**给团队
+> - `pull` = 把团队的代码**同步**到本地
+
+---
+
+##  核心思维三：分支开发（互不干扰的平行宇宙）
+
+分支让你可以**安全地实验**，不影响主代码。
+
+```mermaid
+gitGraph
+   commit id: "初始代码"
+   commit id: "v1.0 上线"
+   branch feature/login
+   checkout feature/login
+   commit id: "写登录页面"
+   commit id: "写登录接口"
+   commit id: "调试完成"
+   checkout main
+   branch feature/pay
+   checkout feature/pay
+   commit id: "写支付功能"
+   commit id: "对接支付宝"
+   checkout main
+   merge feature/login tag: "合并登录功能"
+   checkout feature/pay
+   commit id: "修复支付bug"
+   checkout main
+   merge feature/pay tag: "合并支付功能"
+```
+
+>  **分支思维核心**：
+> - `main` 分支 = 稳定版本（永远可运行）
+> - `feature/xxx` 分支 = 开发新功能（坏了大不了删掉重来）
+> - 开发完 → 测试通过 → 合并回 `main`
+
+---
+
+##  核心思维四：完整开发链路（每天做的事）
+
+```mermaid
+flowchart TD
+    S1["1️⃣ git clone<br/>克隆项目到本地"] --> S2["2️⃣ git switch -c feature/xxx<br/>创建功能分支"]
+    S2 --> S3["3️⃣ 写代码...<br/>修改文件"]
+    S3 --> S4["4️⃣ git add .<br/>暂存所有改动"]
+    S4 --> S5["5️⃣ git commit -m 'xxx'<br/>提交到本地仓库"]
+    S5 --> S6{"还有改动?"}
+    S6 -->|"有"| S3
+    S6 -->|"没有了"| S7["6️⃣ git push origin feature/xxx<br/>推送到 GitHub"]
+    S7 --> S8["7️⃣ 在 GitHub 发起 PR<br/>请同事审核代码"]
+    S8 --> S9["8️⃣ 审核通过，合并到 main"]
+    S9 --> S10["✅ 完成！切回 main 拉最新代码"]
+
+    style S1 fill:#e8f4fd,stroke:#0d6efd
+    style S5 fill:#d4edda,stroke:#28a745
+    style S7 fill:#d1ecf1,stroke:#17a2b8
+    style S8 fill:#fff3cd,stroke:#ffc107
+    style S10 fill:#d4edda,stroke:#28a745
 ```
 
 ---
 
-## merge
+##  一张图记住所有命令的关系
 
-```txt id="jlwm9j"
-把功能合并回主分支
+```mermaid
+flowchart TB
+    subgraph 本地操作
+        WD2["工作区"] -->|"add"| SA2["暂存区"]
+        SA2 -->|"commit"| LR2["本地仓库"]
+        LR2 -->|"checkout / switch"| WD2
+        LR2 -->|"reset"| SA2
+        SA2 -->|"restore --staged"| WD2
+    end
+
+    subgraph 远程交互
+        LR2 -->|"push"| RR2["GitHub 远程仓库"]
+        RR2 -->|"pull / fetch"| LR2
+        RR2 -->|"clone"| LR2
+    end
+
+    subgraph 分支管理
+        BR["git branch<br/>git switch -c<br/>git merge"]
+    end
+
+    LR2 --- BR
+    BR --- RR2
+
+    style WD2 fill:#fff3cd,stroke:#ffc107
+    style SA2 fill:#d1ecf1,stroke:#17a2b8
+    style LR2 fill:#d4edda,stroke:#28a745
+    style RR2 fill:#e2d9f3,stroke:#6f42c1
 ```
+
+---
+
+##  新人常见误区总结
+
+| 误区 | 正确理解 |
+|------|----------|
+| ❌ `git add` 就是保存了 | ✅ `git add` 只是标记文件，`git commit` 才是真正生成版本 |
+| ❌ `git push` 后别人立刻能看到 | ✅ 还需要在 GitHub 上发起 PR 并合并 |
+| ❌ 直接在 `main` 分支上写代码 | ✅ 必须创建 `feature/xxx` 分支开发 |
+| ❌ 改坏了代码就完了 | ✅ `git checkout` 可以回退到任意历史版本 |
+| ❌ Git 和 GitHub 是一回事 | ✅ Git 是工具，GitHub 是网站平台 |
+
+---
+
 
