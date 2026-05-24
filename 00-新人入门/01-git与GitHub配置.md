@@ -366,80 +366,81 @@ git clone 仓库地址(刚刚复制的)
 ```bash id="n0e8v8"
 git clone 仓库地址
 ```
+![alt text](image-14.png)
 
 ---
 
-## 2. 进入项目
+## 2. 用终端进入项目/用vscode的打开文件夹(教程上面的步骤有)
 
 ```bash id="4utp2l"
 cd 项目名
 ```
+![alt text](image-15.png)
+![alt text](image-16.png)
 
 ---
 
-## 3. 查看当前分支
+## 3. 在仓库查看当前分支
 
 ```bash id="7g4t3y"
 git branch
 ```
+![alt text](image-17.png)
 
 ---
 
 ## 4. 创建功能分支
 
-例如开发登录功能：
+例如开发登录功能,输入这个命令后可以切换到该功能分支：
 
 ```bash id="g7f1qv"
-git checkout -b feature/login
+git checkout -b feature/功能名(英文)
 ```
 
 或者新版：
 
 ```bash id="jlwmu8"
-git switch -c feature/login
+git switch -c feature/功能名(英文)
 ```
+
+![alt text](image-18.png)
 
 ---
 
 ## 5. 开发代码
 
-修改文件。
+修改文件后你vscode会有提示
+![alt text](image-19.png)
 
 ---
 
-## 6. 查看状态
-
-```bash id="jlwm19"
-git status
-```
-
----
-
-## 7. 添加代码
+## 6. 暂存所有改动的代码/文件
 
 ```bash id="4iwnc0"
 git add .
 ```
-
+![alt text](image-20.png)
+输入命令后这里会显示暂存你的代码修改
+![alt text](image-21.png)
 ---
 
-## 8. 提交代码
+## 7. 提交代码
 
 ```bash id="jlwmc7"
-git commit -m "完成登录页面"
+git commit -m "双引号里面描述你改动的具体内容"
 ```
 
 ---
 
-## 9. 推送分支到 GitHub
+## 8. 推送分支到 GitHub
 
 ```bash id="jlwm85"
-git push origin feature/login
+git push origin feature/功能名(英文)
 ```
 
 ---
 
-## 10. 在 GitHub 发起 PR（Pull Request）
+## 9. 在 GitHub 发起 PR（Pull Request）
 
 也叫：
 
@@ -448,7 +449,7 @@ git push origin feature/login
 
 ---
 
-## 11. 合并到 main
+## 10. 合并到 main
 
 项目负责人审核后：
 
