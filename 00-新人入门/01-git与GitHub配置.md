@@ -4,31 +4,9 @@ https://github.com/?utm_source=chatgpt.com
 
 # 一、Git 和 GitHub 是什么
 
-## Git
+* **Git（工具）**：就像是单机游戏里的“存档管理器”。它在你的电脑本地运行，帮你记录代码的每一次修改、每一个版本。
+* **GitHub（平台）**：就像是“游戏云端存档中心”。它是一个网络平台，让你把本地的存档传到云端，方便备份或者和队友一起联机（协同开发）。
 
-Git 是代码版本管理工具,相当于游戏存档。
-
-作用：
-
-* 保存代码历史
-* 回退版本
-* 多人协作
-* 上传 GitHub
-
----
-
-## GitHub
-
-[GitHub 官网](https://github.com?utm_source=chatgpt.com)
-
-GitHub 是云端代码仓库平台。
-
-作用：
-
-* 存代码
-* 团队协作
-* 免费部署网页
-* 做项目作品集
 
 ---
 
@@ -106,26 +84,6 @@ git version 2.xx.x
 ```
 
 说明安装成功。
-
----
-
-# 五、安装 VSCode（推荐）
-
-## 下载
-
-[VSCode 官网](https://code.visualstudio.com?utm_source=chatgpt.com)
-
----
-
-## 安装建议
-
-勾选：
-
-```txt id="4vvf4q"
-√ 添加到 PATH
-√ 右键菜单打开
-√ 注册 code 命令
-```
 
 ---
 
